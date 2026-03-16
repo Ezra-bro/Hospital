@@ -1,0 +1,44 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+{% block content %}
+
+
+    <h1 class="text-center">Patients</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nulla culpa laboriosam quaerat ex dignissimos itaque dolorem deleniti pariatur dolorum asperiores quam tempora magnam vitae vel fuga, sit necessitatibus quas!
+        Illo maiores quibusdam repellendus exercitationem animi vitae. Eligendi quod, voluptates laudantium harum atque nemo aperiam necessitatibus debitis unde quia similique adipisci tempora doloribus fugiat. Blanditiis dolores quas alias adipisci nesciunt?
+
+    </p>
+
+    <table class="table table-light">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>DoB</th>
+            <th>Date & Time</th>
+            <th>Medical-History</th>
+            
+        </tr>
+
+        {% for allpatients in allpatients %}
+        <tr>
+            <td>{{allpatients.name}}</td>
+            <td>{{allpatients.email}}</td>
+            <td>{{allpatients.gender}}</td>
+            <td>{{allpatients.age}}</td>
+            <td>{{allpatients.dob}}</td>
+            <td>{{allpatients.datetime}}</td>
+            <td>{{allpatients.medicalhistory}}</td>
+        </tr>
+
+
+        {% endfor %}
+
+
+    </table>
+
+
+
+{% endblock %}

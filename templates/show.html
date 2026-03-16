@@ -1,0 +1,56 @@
+{% extends 'starter-page.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <h1 class="text-center">Booked Appointments</h1>
+    <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur nostrum qui, atque ut obcaecati quasi. Blanditiis, ipsam animi velit odit porro magni temporibus, voluptatem corrupti nemo, in maiores optio? Veniam!
+    Quis pariatur iste itaque at earum, autem quae eveniet, explicabo recusandae quisquam neque hic doloribus molestiae dolorem necessitatibus dicta eaque. Id qui neque deserunt repudiandae quaerat, vitae facilis! Commodi, quaerat.
+    </p>
+
+    <table class="table table-primary">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone-Number</th>
+            <th>Date & Time</th>
+            <th>Department</th>
+            <th>Doctor</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for allappointments in allappointments %}
+        <tr>
+            <td>{{allappointments.name}}</td>
+            <td>{{allappointments.email}}</td>
+            <td>{{allappointments.phone}}</td>
+            <td>{{allappointments.datetime}}</td>
+            <td>{{allappointments.department}}</td>
+            <td>{{allappointments.doctor}}</td>
+            <td>{{allappointments.message}}</td>
+            <td>
+                <a href="/edit/{{allappointments.id}}" class="btn btn-warning">Edit</a>
+                <a href="/delete/{{allappointments.id}}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'pay' %}" class="btn btn-success">Pay</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+        
+          {% for message in messages %}
+
+          <p class="alert alert-danger">{{message}}</p>
+
+          {% endfor %}
+        
+
+
+
+{% endblock %}
